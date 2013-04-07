@@ -14,25 +14,25 @@ unity-easywebview is based on "unity-webview-integration" https://github.com/kei
 
 ## Add WebView
 
-'''js
+```js
 static function AddWebRect( url : String, left : int, top: int, width : int, height : int, viewname : String );
-'''
+```
 
 ## Remove WebView
 
-'''js
+```js
 static function RemoveWebRectByName(viewname : String);
-'''
+```
 
 # Example
 
-'''js
+```js
 // add AD area for the title scene.
 EasyWebview.RemoveWebRectByName("http://url/to/ad.html", 0, 0, 320, 50, "AD-for-Title");
 
 // remove AD area for the title scene.
 EasyWebview.RemoveWebRectByName("AD-for-Title");
-'''
+```
 
 # License
 
