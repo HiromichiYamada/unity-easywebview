@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+<title></title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+div#ad{
+	background-color: #aaa;
+	width: 320px;
+	height: 50px;
+}
+</style>
+<script>
+function setContent(){
+	var linkHTML = '<strong><a href="http://apps.torques.jp/torquespics" target="_blank">[[[ Torques Pics ]]]</a></strong>';
+
+	var rnd = Math.floor( Math.random() * 6 );
+	var col = new Array("#f66", "#6f6", "#66f", "#ff6", "#f6f", "#6ff");
+	var elem = document.getElementById("ad");
+	elem.style.backgroundColor = col[rnd];
+
+	var date = new Date();
+	var strHour = date.getHours();
+	if( strHour < 10){
+		strHour = '0'+strHour;
+	}
+	var strMin = date.getMinutes();
+	if( strMin < 10){
+		strMin = '0'+strMin;
+	}
+	var strSec = date.getSeconds();
+	if( strSec< 10){
+		strSec = '0'+strSec;
+	}
+	var strDate = strHour + ":" + strMin + ":" + strSec;
+	elem.innerHTML	= "AD <small>("+strDate+")</small><br/>"+linkHTML;
+}
+</script>
+</head>
+<body onload="setContent();">
+<div id="ad">
+</div>
+</body>
+</html>
