@@ -7,9 +7,11 @@ function Start () {
 	screenScale		= Screen.width / 320.0f;
 	var sh : float	= Screen.height / screenScale;
 	
-	// Set AD : 320x50
-	EasyWebview.AddWebRect("http://www.torques.jp/banner/bannerTorquesPics.html", 0, 200, 320, 50, "Banner0");
-	
+	// Set AD : 320x50 from web.
+//	EasyWebview.AddWebRect("http://www.torques.jp/banner/bannerTorquesPics.html", 0, 200, 320, 50, "Banner0");
+	// Set AD : 320x50 from Bundle.
+EasyWebview.AddBundleWebRect("myhtml", "mybanner", "html", 0, 200, 320, 50, "Banner0");
+
 	reloadAD();
 }
 

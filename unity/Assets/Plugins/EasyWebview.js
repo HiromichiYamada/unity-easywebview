@@ -56,6 +56,12 @@ static function createNewTagForName( viewname : String ){
 static function AddWebRect( url : String, left : int, top: int, width : int, height : int, viewname : String) {
 	// not implemented.
 }
+static function AddBundleWebRect(
+	pathname : String, filename : String, filetype : String,
+	left : int, top: int, width : int, height : int,
+	viewname : String ){
+	// not implemented.
+}
 static function RemoveWebRectByName( viewname : String ){
 	// not implemented.
 }
@@ -64,9 +70,10 @@ static function RemoveWebRectByName( viewname : String ){
 // iOS platform implementation.
 
 @DllImportAttribute("__Internal") static private function _WebViewPluginAddWebRect(url : String, left : int, top : int, width : int, height : int, isClearCache : boolean, tagTarget : int) {}
+@DllImportAttribute("__Internal") static private function _WebViewPluginAddBundleWebRect(pathname : String, filename : String, filetype : String, left : int, top : int, width : int, height : int, isClearCache : boolean, tagTarget : int) {}
 @DllImportAttribute("__Internal") static private function _WebViewPluginRemoveByTag(tagTarget : int) {}
 
-// for easy using.
+// for easy using (from web).
 static function AddWebRect( url : String,
 	left : int, top: int, width : int, height : int,
 	viewname : String )
@@ -80,6 +87,26 @@ static function AddWebRect( url : String,
 	_WebViewPluginAddWebRect(url, left, top, width, height, true, tagTarget);
 }
 
+// for easy using (from bundle).
+// @param pathname (/Assets/StreamingAssets/)pathname(/filename.html)
+// @param filename (path/)filename(.html)
+// @param filetype (filename).html
+static function AddBundleWebRect(
+	pathname : String, filename : String, filetype : String,
+	left : int, top: int, width : int, height : int,
+	viewname : String )
+{
+	Debug.Log( "AddBundleWebRect" );
+	
+	var tagTarget : int	= getTagForName( viewname );
+	if( tagTarget <= 0 ){
+		tagTarget	= createNewTagForName( viewname );	// create and set.
+	}
+	_WebViewPluginAddBundleWebRect("Data/Raw/"+pathname, filename, filetype,
+		left, top, width, height, true, tagTarget);
+}
+
+// for easy using (to remove).
 static function RemoveWebRectByName( viewname : String )
 {
 	Debug.Log( "RemoveWebRectByName" );
@@ -97,6 +124,12 @@ static function RemoveWebRectByName( viewname : String )
 
 // for easy using.
 static function AddWebRect( url : String, left : int, top: int, width : int, height : int, viewname : String) {
+	// not implemented.
+}
+static function AddBundleWebRect(
+	pathname : String, filename : String, filetype : String,
+	left : int, top: int, width : int, height : int,
+	viewname : String ){
 	// not implemented.
 }
 static function RemoveWebRectByName( viewname : String )
