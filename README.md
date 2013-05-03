@@ -12,10 +12,16 @@ unity-easywebview is based on "unity-webview-integration" https://github.com/kei
 
 # How to use
 
-## Add WebView
+## Add WebView from web
 
 ```js
 static function AddWebRect( url : String, left : int, top: int, width : int, height : int, viewname : String );
+```
+
+## Add WebView from bundle
+
+```js
+static function AddBundleWebRect( pathname : String, filename : String, filetype : String, left : int, top: int, width : int, height : int, viewname : String );
 ```
 
 ## Remove WebView
@@ -29,6 +35,9 @@ static function RemoveWebRectByName(viewname : String);
 ```js
 // add AD area for the title scene.
 EasyWebview.RemoveWebRectByName("http://url/to/ad.html", 0, 0, 320, 50, "AD-for-Title");
+
+// add AD area from bundled HTML /Assets/StreamingAssets/myhtml/mybanner.html
+EasyWebview.AddBundleWebRect("myhtml", "mybanner", "html", 0, 200, 320, 50, "AD2");
 
 // remove AD area for the title scene.
 EasyWebview.RemoveWebRectByName("AD-for-Title");
