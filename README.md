@@ -34,7 +34,7 @@ static function RemoveWebRectByName(viewname : String);
 
 ```js
 // add AD area for the title scene.
-EasyWebview.RemoveWebRectByName("http://url/to/ad.html", 0, 0, 320, 50, "AD-for-Title");
+EasyWebview.AddWebRect("http://url/to/ad.html", 0, 0, 320, 50, "AD-for-Title");
 
 // add AD area from bundled HTML /Assets/StreamingAssets/myhtml/mybanner.html
 EasyWebview.AddBundleWebRect("myhtml", "mybanner", "html", 0, 200, 320, 50, "AD2");
@@ -48,7 +48,6 @@ EasyWebview.RemoveWebRectByName("AD-for-Title");
 MIT License
 
 Copyright (C) 2013 Torques Inc.
-
 Copyright (C) 2011 Keijiro Takahashi
 
 This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
